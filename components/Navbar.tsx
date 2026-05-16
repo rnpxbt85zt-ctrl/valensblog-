@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useLang } from '@/app/layout';
+import { useLang } from '@/app/providers';
 import { translations } from '@/lib/translations';
 
 export default function Navbar() {
@@ -10,7 +10,7 @@ export default function Navbar() {
   const path = usePathname();
   const isAdmin = path.startsWith('/admin');
 
-  if (isAdmin) return null; // Admin has its own nav
+  if (isAdmin) return null;
 
   return (
     <nav style={{
@@ -24,17 +24,15 @@ export default function Navbar() {
         </Link>
 
         <div style={{ display: 'flex', gap: '1.5rem', marginLeft: 'auto', alignItems: 'center' }}>
-          <Link href="/" style={{ color: path === '/' ? 'var(--accent2)' : 'var(--text2)', fontWeight: 500, fontSize: '.95rem', transition: 'color .2s' }}>
+          <Link href="/" style={{ color: path === '/' ? 'var(--accent2)' : 'var(--text2)', fontWeight: 500, fontSize: '.95rem' }}>
             {t.home}
           </Link>
-          <Link href="/articles" style={{ color: path === '/articles' ? 'var(--accent2)' : 'var(--text2)', fontWeight: 500, fontSize: '.95rem', transition: 'color .2s' }}>
+          <Link href="/articles" style={{ color: path === '/articles' ? 'var(--accent2)' : 'var(--text2)', fontWeight: 500, fontSize: '.95rem' }}>
             {t.articles}
           </Link>
-          <Link href="/contact" style={{ color: path === '/contact' ? 'var(--accent2)' : 'var(--text2)', fontWeight: 500, fontSize: '.95rem', transition: 'color .2s' }}>
+          <Link href="/contact" style={{ color: path === '/contact' ? 'var(--accent2)' : 'var(--text2)', fontWeight: 500, fontSize: '.95rem' }}>
             {t.contact}
           </Link>
-
-          {/* Language toggle */}
           <button
             onClick={() => setLang(lang === 'en' ? 'es' : 'en')}
             style={{
