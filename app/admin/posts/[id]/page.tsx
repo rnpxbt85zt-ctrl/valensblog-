@@ -112,7 +112,7 @@ export default function PostEditor() {
         if (editor && data.content) editor.commands.setContent(data.content);
         // Load attachments from content metadata
         try {
-          const match = data.content?.match(/<!--ATT:(.*?)-->/s);
+          const match = data.content?.match(/<!--ATT:([\s\S]*?)-->/);
           if (match) setAttachments(JSON.parse(match[1]));
         } catch {}
         setLoading(false);
