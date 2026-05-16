@@ -1,6 +1,5 @@
 import createDOMPurify from 'isomorphic-dompurify';
 
-// Sanitize HTML content (for rich text editor output)
 export function sanitizeHTML(dirty: string): string {
   return createDOMPurify.sanitize(dirty, {
     ALLOWED_TAGS: [
@@ -10,16 +9,13 @@ export function sanitizeHTML(dirty: string): string {
     ],
     ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'target', 'rel'],
     ALLOW_DATA_ATTR: false,
-    FORBID_SCRIPTS: true,
   });
 }
 
-// Sanitize plain text input (strip all HTML)
 export function sanitizeText(input: string): string {
   return createDOMPurify.sanitize(input, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] }).trim();
 }
 
-// Validate and sanitize slug
 export function sanitizeSlug(input: string): string {
   return input
     .toLowerCase()
