@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { useLang } from '@/app/layout';
+import { useLang } from '@/app/providers';
 import { translations } from '@/lib/translations';
 
 export default function ContactPage() {
@@ -29,9 +29,7 @@ export default function ContactPage() {
   return (
     <div style={{ padding: '4rem 0' }}>
       <div className="container-narrow" style={{ maxWidth: '600px' }}>
-        <h1 style={{ fontFamily: 'var(--font)', fontWeight: 800, fontSize: '2.5rem', marginBottom: '2rem' }}>
-          {t.contactTitle}
-        </h1>
+        <h1 style={{ fontFamily: 'var(--font)', fontWeight: 800, fontSize: '2.5rem', marginBottom: '2rem' }}>{t.contactTitle}</h1>
 
         {status === 'success' ? (
           <div style={{ background: 'rgba(34,197,94,.1)', border: '1px solid rgba(34,197,94,.3)', borderRadius: 'var(--radius)', padding: '1.5rem', color: '#4ade80' }}>
@@ -41,49 +39,23 @@ export default function ContactPage() {
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div>
               <label>{t.contactName}</label>
-              <input
-                required
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="Valen..."
-                maxLength={100}
-              />
+              <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Valen..." maxLength={100} />
             </div>
             <div>
               <label>{t.contactEmail}</label>
-              <input
-                type="email"
-                required
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="valen@example.com"
-                maxLength={200}
-              />
+              <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="valen@example.com" maxLength={200} />
             </div>
             <div>
               <label>{t.contactMessage}</label>
-              <textarea
-                required
-                rows={5}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                placeholder="..."
-                maxLength={2000}
-                style={{ resize: 'vertical' }}
-              />
+              <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="..." maxLength={2000} style={{ resize: 'vertical' }} />
             </div>
-
-            {status === 'error' && (
-              <p style={{ color: '#f87171', fontSize: '.9rem' }}>Something went wrong. Please try again.</p>
-            )}
-
+            {status === 'error' && <p style={{ color: '#f87171', fontSize: '.9rem' }}>Something went wrong. Please try again.</p>}
             <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
-              {status === 'sending' ? <><span className="spinner" /> Sending...</> : t.contactSend}
+              {status === 'sending' ? 'Sending...' : t.contactSend}
             </button>
           </form>
         )}
 
-        {/* Social links */}
         <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border)' }}>
           <p style={{ color: 'var(--text2)', marginBottom: '1rem' }}>Or find me on:</p>
           <div style={{ display: 'flex', gap: '1rem' }}>
