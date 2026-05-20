@@ -60,13 +60,13 @@ export default function Navbar() {
 
           {/* Social icons */}
           <div style={{ display: 'flex', gap: '.75rem', alignItems: 'center', borderLeft: '1px solid var(--border)', paddingLeft: '1rem' }}>
-            <a href="https://instagram.com/valen" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text2)', transition: 'color .2s', display: 'flex' }} onMouseOver={e => (e.currentTarget.style.color = '#E1306C')} onMouseOut={e => (e.currentTarget.style.color = 'var(--text2)')}>
+            <a href="https://www.instagram.com/valendefrutoss/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text2)', transition: 'color .2s', display: 'flex' }} onMouseOver={e => (e.currentTarget.style.color = '#E1306C')} onMouseOut={e => (e.currentTarget.style.color = 'var(--text2)')}>
               <InstagramIcon />
             </a>
-            <a href="https://tiktok.com/@valen" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text2)', transition: 'color .2s', display: 'flex' }} onMouseOver={e => (e.currentTarget.style.color = '#fff')} onMouseOut={e => (e.currentTarget.style.color = 'var(--text2)')}>
+            <a href="https://www.tiktok.com/@valendefrutoss" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text2)', transition: 'color .2s', display: 'flex' }} onMouseOver={e => (e.currentTarget.style.color = '#fff')} onMouseOut={e => (e.currentTarget.style.color = 'var(--text2)')}>
               <TikTokIcon />
             </a>
-            <a href="https://linkedin.com/in/valen" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text2)', transition: 'color .2s', display: 'flex' }} onMouseOver={e => (e.currentTarget.style.color = '#0A66C2')} onMouseOut={e => (e.currentTarget.style.color = 'var(--text2)')}>
+            <a href="https://www.linkedin.com/in/valentindefrutos" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text2)', transition: 'color .2s', display: 'flex' }} onMouseOver={e => (e.currentTarget.style.color = '#0A66C2')} onMouseOut={e => (e.currentTarget.style.color = 'var(--text2)')}>
               <LinkedInIcon />
             </a>
           </div>
