@@ -17,7 +17,7 @@ export default function ContactPage() {
         </p>
 
         
-          href="mailto:valentindefrutos1@gmail.com"
+          <a href="mailto:valentindefrutos1@gmail.com"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: '1rem',
             background: 'var(--card)', border: '1px solid var(--border)',
